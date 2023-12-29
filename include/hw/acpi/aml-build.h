@@ -4,8 +4,8 @@
 #include "hw/acpi/acpi-defs.h"
 #include "hw/acpi/bios-linker-loader.h"
 
-#define ACPI_BUILD_APPNAME6 "BOCHS "
-#define ACPI_BUILD_APPNAME8 "BXPC    "
+#define ACPI_BUILD_APPNAME6 "ALASKA"
+#define ACPI_BUILD_APPNAME8 "ASPC    "
 
 #define ACPI_BUILD_TABLE_FILE "etc/acpi/tables"
 #define ACPI_BUILD_RSDP_FILE "etc/acpi/rsdp"

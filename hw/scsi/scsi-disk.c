@@ -2509,7 +2509,7 @@ static void scsi_realize(SCSIDevice *dev, Error **errp)
         s->version = g_strdup(qemu_hw_version());
     }
     if (!s->vendor) {
-        s->vendor = g_strdup("QEMU");
+        s->vendor = g_strdup("Western Digital Technologies, Inc.");
     }
     if (!s->device_id) {
         if (s->serial) {
@@ -2564,7 +2564,7 @@ static void scsi_hd_realize(SCSIDevice *dev, Error **errp)
     s->qdev.blocksize = s->qdev.conf.logical_block_size;
     s->qdev.type = TYPE_DISK;
     if (!s->product) {
-        s->product = g_strdup("QEMU HARDDISK");
+        s->product = g_strdup("WDC WD10JPVX-22JC3T0");
     }
     scsi_realize(&s->qdev, errp);
 out:
@@ -2598,7 +2598,7 @@ static void scsi_cd_realize(SCSIDevice *dev, Error **errp)
     s->qdev.type = TYPE_ROM;
     s->features |= 1 << SCSI_DISK_F_REMOVABLE;
     if (!s->product) {
-        s->product = g_strdup("QEMU CD-ROM");
+        s->product = g_strdup("ASUS DRW 24F1ST");
     }
     scsi_realize(&s->qdev, errp);
     aio_context_release(ctx);

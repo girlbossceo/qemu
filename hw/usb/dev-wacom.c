@@ -64,8 +64,8 @@ enum {
 };
 
 static const USBDescStrings desc_strings = {
-    [STR_MANUFACTURER]     = "QEMU",
-    [STR_PRODUCT]          = "Wacom PenPartner",
+    [STR_MANUFACTURER]     = "Wacom",
+    [STR_PRODUCT]          = "Wacom Tablet",
     [STR_SERIALNUMBER]     = "1",
 };
 
@@ -231,7 +231,7 @@ static int usb_mouse_poll(USBWacomState *s, uint8_t *buf, int len)
 
     if (!s->mouse_grabbed) {
         s->eh_entry = qemu_add_mouse_event_handler(usb_mouse_event, s, 0,
-                        "QEMU PenPartner tablet");
+                        "Wacom Tablet");
         qemu_activate_mouse_event_handler(s->eh_entry);
         s->mouse_grabbed = 1;
     }
@@ -269,7 +269,7 @@ static int usb_wacom_poll(USBWacomState *s, uint8_t *buf, int len)
 
     if (!s->mouse_grabbed) {
         s->eh_entry = qemu_add_mouse_event_handler(usb_wacom_event, s, 1,
-                        "QEMU PenPartner tablet");
+                        "Wacom Tablet");
         qemu_activate_mouse_event_handler(s->eh_entry);
         s->mouse_grabbed = 1;
     }
@@ -425,7 +425,7 @@ static void usb_wacom_class_init(ObjectClass *klass, void *data)
     DeviceClass *dc = DEVICE_CLASS(klass);
     USBDeviceClass *uc = USB_DEVICE_CLASS(klass);
 
-    uc->product_desc   = "QEMU PenPartner Tablet";
+    uc->product_desc   = "Wacom Tablet";
     uc->usb_desc       = &desc_wacom;
     uc->realize        = usb_wacom_realize;
     uc->handle_reset   = usb_wacom_handle_reset;
@@ -433,7 +433,7 @@ static void usb_wacom_class_init(ObjectClass *klass, void *data)
     uc->handle_data    = usb_wacom_handle_data;
     uc->unrealize      = usb_wacom_unrealize;
     set_bit(DEVICE_CATEGORY_INPUT, dc->categories);
-    dc->desc = "QEMU PenPartner Tablet";
+    dc->desc = "Wacom Tablet";
     dc->vmsd = &vmstate_usb_wacom;
 }
 
